@@ -71,7 +71,7 @@
   width: 100%;
 }
 
-/* BOTÓN HAMBURGUESA */
+/* BOTÓN HAMBURGUESA (DESKTOP NO SE VE) */
 .menu-icon {
   position: absolute;
   right: 260px;
@@ -91,9 +91,15 @@
     display: none;
   }
 
+  /* Mostrar icono y moverlo a la izquierda */
   .menu-icon {
     display: block;
-    right: 2rem;
+    left: 2rem;
+    right: auto;
+  }
+
+  .logo {
+    margin-left: auto;
   }
 
   .logo-img {
