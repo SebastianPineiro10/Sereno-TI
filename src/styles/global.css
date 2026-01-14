@@ -1,10 +1,8 @@
-/* src/styles/global.css */
-
 :root {
   --black: #0e0e0e;
-  --white: #f8f8f8;
-  --gray: #999;
-  --accent: #ffffff10;
+  --white: #ffffff;
+  --gray: #666;
+  --accent: #00000010;
   --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --transition: all 0.3s ease;
 }
@@ -17,8 +15,8 @@
 
 html, body {
   font-family: var(--font-main);
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -49,7 +47,7 @@ h1, h2, h3, h4 {
   font-weight: 600;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
-  color: var(--white);
+  color: var(--black);
 }
 
 p {
