@@ -1,39 +1,75 @@
+/* ========================= */
+/* CONTACT SECTION */
+/* ========================= */
+
 .contact {
-  background-color: white;
-  color: #111; /* Texto negro elegante */
+  background-color: #ffffff;
+  color: #111;
   text-align: center;
-  padding: 8rem 2rem;
+  padding: 14rem 2rem 10rem; /* ⬅ más aire arriba */
+  font-family: 'Inter', sans-serif;
 }
+
+/* ========================= */
+/* TITLES */
+/* ========================= */
 
 .contact-title {
   font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  padding: 15rem 2rem 5rem;
+  font-weight: 600;
+  margin-bottom: 2rem; /* ⬅ separa mejor del subtítulo */
+  letter-spacing: 1px;
 }
 
 .contact-subtitle {
-  font-size: 1.2rem;
-  color: #555; /* Texto gris oscuro */
-  margin-bottom: 3rem;
-  max-width: 600px;
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 4.5rem; /* ⬅ aire antes del botón */
+  max-width: 620px;
   margin-inline: auto;
+  line-height: 1.8;
 }
+
+/* ========================= */
+/* CTA BUTTON */
+/* ========================= */
 
 .whatsapp-button {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   background-color: #25d366;
-  color: black;
-  padding: 1rem 2rem;
-  border-radius: 30px;
+  color: #000;
+  padding: 1.2rem 3rem; /* ⬅ botón más respirado */
+  border-radius: 40px;
   font-weight: 600;
   text-decoration: none;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .whatsapp-button:hover {
   background-color: #1ebc59;
+  transform: translateY(-2px);
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 8rem 2rem 6rem; /* ⬅ ajustado para mobile */
+  }
+
+  .contact-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 3.5rem;
+  }
 }
