@@ -94,6 +94,28 @@
   border-color: #000;
   transform: translateY(-6px);
 }
+@media (max-width: 900px) {
+  .hero {
+    padding: 0 2rem;
+  }
+
+  /*  Baja el contenido del hero en mobile */
+  .hero-content {
+    margin-top: 6rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+  }
+
+  .services-preview {
+    grid-template-columns: 1fr;
+    padding: 5rem 2rem;
+    gap: 2.5rem;
+  }
+}
+
 
 /* ========================= */
 /* MOBILE */
