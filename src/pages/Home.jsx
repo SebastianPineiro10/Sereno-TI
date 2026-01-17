@@ -5,32 +5,47 @@ export default function Home() {
   return (
     <main className="home">
       <section className="hero">
-        <h1>Sereno TI</h1>
-        <p className="hero-subtitle">
-          Sistemas personalizados. Infraestructura sólida. Elegancia funcional.
-        </p>
-        <a
-          href="https://wa.me/526567779435"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="whatsapp-button"
-        >
-          Solicita una demo
-        </a>
+        <div className="hero-content">
+          <h1>Sereno TI</h1>
+          <p className="hero-subtitle">
+            Arquitectura de software, plataformas empresariales y soluciones
+            tecnológicas de alto nivel para empresas que no pueden fallar.
+          </p>
+
+          <a
+            href="https://wa.me/526567779435"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-button"
+          >
+            Solicitar demostración
+          </a>
+        </div>
       </section>
 
       <section className="services-preview">
         <div className="service-card">
-          <h3>Sistemas Web</h3>
-          <p>Conexión avanzada con PostgreSQL, Firebase y MongoDB.</p>
+          <h3>Plataformas Web</h3>
+          <p>
+            Sistemas empresariales conectados a PostgreSQL, MongoDB y Firebase,
+            diseñados para escalar y mantenerse estables.
+          </p>
         </div>
+
         <div className="service-card">
           <h3>Apps Móviles</h3>
-          <p>Aplicaciones rápidas y escalables con Expo + React Native.</p>
+          <p>
+            Aplicaciones nativas de alto rendimiento construidas con React
+            Native y Expo para Android e iOS.
+          </p>
         </div>
+
         <div className="service-card">
-          <h3>Soporte Empresarial</h3>
-          <p>Soluciones técnicas confiables y acompañamiento premium.</p>
+          <h3>Infraestructura</h3>
+          <p>
+            Arquitectura, automatización, paneles administrativos y soporte
+            técnico continuo para empresas.
+          </p>
         </div>
       </section>
     </main>

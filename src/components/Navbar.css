@@ -2,9 +2,9 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1.5rem 3rem;
+  padding: 0.8rem 3rem; /* más delgado */
   z-index: 1000;
-  background-color: #1a1a1a;
+  background-color: rgba(26, 26, 26, 0.92); /* más ligero visualmente */
   backdrop-filter: blur(10px);
   transition: background-color 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
 }
@@ -12,7 +12,7 @@
 .navbar.scrolled {
   background-color: var(--accent);
   backdrop-filter: blur(10px);
-  padding: 1rem 3rem;
+  padding: 0.6rem 3rem;
 }
 
 /* Contenedor principal */
@@ -20,7 +20,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%;
 }
 
 /* LOGO A LA DERECHA */
@@ -31,8 +30,8 @@
 }
 
 .logo-img {
-  height: 180px;
-  margin-left: 2rem;
+  height: 110px; /* más fino */
+  margin-left: 1.5rem;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -42,15 +41,16 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 2.5rem;
+  gap: 2.2rem;
 }
 
 .nav-links a {
   color: #ddd;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.85rem; /* más elegante */
   opacity: 0.85;
   text-transform: uppercase;
+  letter-spacing: 1.5px;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -58,7 +58,7 @@
 .nav-links a::after {
   content: "";
   position: absolute;
-  bottom: -4px;
+  bottom: -5px;
   left: 0;
   height: 1px;
   width: 0%;
@@ -71,10 +71,10 @@
   width: 100%;
 }
 
-/* BOTÓN HAMBURGUESA (DESKTOP NO SE VE) */
+/* BOTÓN HAMBURGUESA */
 .menu-icon {
   position: absolute;
-  right: 260px;
+  right: 2rem;
   background: none;
   border: none;
   color: white;
@@ -91,19 +91,14 @@
     display: none;
   }
 
-  /* Mostrar icono y moverlo a la izquierda */
   .menu-icon {
     display: block;
-    left: 2rem;
+    left: 1.5rem;
     right: auto;
   }
 
-  .logo {
-    margin-left: auto;
-  }
-
   .logo-img {
-    height: 120px;
+    height: 80px;
   }
 }
 
@@ -176,7 +171,6 @@
   color: #ccc;
 }
 
-/* Fondo oscuro detrás del menú */
 .side-menu-overlay {
   position: absolute;
   top: 0;
