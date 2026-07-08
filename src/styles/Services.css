@@ -1,0 +1,238 @@
+.services-page {
+  background: var(--color-background);
+}
+
+.services-hero {
+  padding: calc(var(--navbar-height) + 110px) 0 110px;
+  background: var(--color-dark);
+}
+
+.services-hero-container {
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.services-eyebrow {
+  display: inline-flex;
+  margin-bottom: 26px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.services-hero h1 {
+  margin-bottom: 26px;
+  color: var(--color-white);
+  font-size: clamp(3rem, 6vw, 5.7rem);
+  font-weight: 650;
+  letter-spacing: -0.06em;
+}
+
+.services-hero p {
+  max-width: 670px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.services-list {
+  padding: 100px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.service-box {
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  padding: 38px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-white);
+  box-shadow: var(--shadow-small);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.service-box:hover {
+  transform: translateY(-6px);
+  border-color: #cbd1d8;
+  box-shadow: var(--shadow-medium);
+}
+
+.service-box-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 76px;
+}
+
+.service-number {
+  color: var(--color-text-light);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.service-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  min-height: 48px;
+}
+
+.service-icons img {
+  width: auto;
+  max-width: 85px;
+  height: 38px;
+  object-fit: contain;
+  opacity: 0.58;
+  filter: grayscale(1);
+  transition:
+    opacity var(--transition),
+    filter var(--transition),
+    transform var(--transition);
+}
+
+.service-box:hover .service-icons img {
+  opacity: 0.95;
+  filter: grayscale(0);
+  transform: translateY(-2px);
+}
+
+.service-content {
+  margin-top: auto;
+}
+
+.service-content h2 {
+  margin-bottom: 19px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.service-content > p {
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.service-content ul {
+  display: grid;
+  gap: 13px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.service-content li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  color: var(--color-text-soft);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.service-content li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-text);
+}
+
+.services-information {
+  padding: 105px 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-border);
+}
+
+.services-information-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.7fr);
+  gap: 100px;
+}
+
+.services-information h2 {
+  max-width: 680px;
+  font-size: clamp(2.4rem, 4.5vw, 4.3rem);
+}
+
+.services-information-container > div:last-child {
+  align-self: end;
+}
+
+.services-information-container > div:last-child p {
+  margin-bottom: 28px;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.services-information a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--color-text);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-box {
+    min-height: 470px;
+  }
+
+  .services-information-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-hero {
+    padding: calc(var(--navbar-height) + 80px) 0 80px;
+  }
+
+  .services-hero h1 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  .services-list {
+    padding: 70px 0;
+  }
+
+  .service-box {
+    min-height: 500px;
+    padding: 28px;
+  }
+
+  .service-box-top {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .service-icons {
+    justify-content: flex-start;
+  }
+
+  .service-icons img {
+    max-width: 70px;
+    height: 32px;
+  }
+
+  .services-information {
+    padding: 80px 0;
+  }
+}

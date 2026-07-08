@@ -1,23 +1,66 @@
-// src/components/SideMenu.jsx
-import { Link } from "react-router-dom";
-import { X } from "lucide-react";
-import "./Navbar.css";
+import { NavLink } from "react-router-dom";
+import { ArrowUpRight, X } from "lucide-react";
 
-export default function SideMenu({ isOpen, toggleMenu }) {
+import "../styles/Navbar.css";
+
+export default function SideMenu({ isOpen, closeMenu }) {
   return (
-    <div className={`side-menu-wrapper ${isOpen ? "open" : ""}`}>
-      <div className="side-menu">
-        <button className="close-button" onClick={toggleMenu}>
-          <X size={26} />
-        </button>
+    <div
+      className={`side-menu-wrapper ${isOpen ? "open" : ""}`}
+      aria-hidden={!isOpen}
+    >
+      <button
+        type="button"
+        className="side-menu-overlay"
+        onClick={closeMenu}
+        aria-label="Cerrar menú"
+      />
 
-        <nav className="side-links">
-          <Link to="/" onClick={toggleMenu}>Home</Link>
-          <Link to="/services" onClick={toggleMenu}>Services</Link>
-          <Link to="/contact" onClick={toggleMenu}>Contact</Link>
+      <aside className="side-menu" aria-label="Menú móvil">
+        <div className="side-menu-header">
+          <span>Sereno TI</span>
+
+          <button
+            type="button"
+            className="side-menu-close"
+            onClick={closeMenu}
+            aria-label="Cerrar menú"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        <nav className="side-menu-links">
+          <NavLink to="/" end onClick={closeMenu}>
+            <span>Inicio</span>
+            <ArrowUpRight size={20} />
+          </NavLink>
+
+          <NavLink to="/services" onClick={closeMenu}>
+            <span>Servicios</span>
+            <ArrowUpRight size={20} />
+          </NavLink>
+
+          <NavLink to="/contact" onClick={closeMenu}>
+            <span>Contacto</span>
+            <ArrowUpRight size={20} />
+          </NavLink>
         </nav>
-      </div>
-      <div className="side-menu-overlay" onClick={toggleMenu}></div>
+
+        <div className="side-menu-footer">
+          <p>
+            Soluciones digitales diseñadas para las necesidades de tu negocio.
+          </p>
+
+          <a
+            href="https://wa.me/526567779435?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Sereno%20TI%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contactar por WhatsApp
+          </a>
+        </div>
+      </aside>
     </div>
   );
 }

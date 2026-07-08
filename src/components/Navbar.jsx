@@ -1,53 +1,107 @@
-// src/components/Navbar.jsx
-import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Menu } from "lucide-react";
+
 import SideMenu from "./SideMenu";
-import "./Navbar.css";
+import "../styles/Navbar.css";
+
+const logoUrl =
+  "https://res.cloudinary.com/dcerhiol0/image/upload/v1768368163/a-luxury-minimalist-wordmark-logo-featur_Hzr1pr99QyqRMrcHBV32lw_acwahrCWScm6PFAw3X0qQA-Photoroom_xypr4p.png";
 
 export default function Navbar() {
-  const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", menuOpen);
+
+    return () => {
+      document.body.classList.remove("menu-open");
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
-      <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="navbar-content">
-
-          {/* LEFT — Mobile Menu */}
-          <button className="menu-icon" onClick={toggleMenu} aria-label="Open menu">
-            <Menu size={26} strokeWidth={1.4} />
-          </button>
-
-          {/* CENTER — Navigation */}
-          <nav className="nav-links">
-            <Link to="/" className={pathname === "/" ? "active" : ""}>Home</Link>
-            <Link to="/services" className={pathname === "/services" ? "active" : ""}>Services</Link>
-            <Link to="/contact" className={pathname === "/contact" ? "active" : ""}>Contact</Link>
-          </nav>
-
-          {/* RIGHT — Logo */}
-          <Link to="/" className="logo">
+      <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+        <div className="navbar-container">
+          <Link
+            to="/"
+            className="navbar-logo"
+            aria-label="Ir al inicio de Sereno TI"
+            onClick={closeMenu}
+          >
             <img
-              src="https://res.cloudinary.com/dcerhiol0/image/upload/v1768368163/a-luxury-minimalist-wordmark-logo-featur_Hzr1pr99QyqRMrcHBV32lw_acwahrCWScm6PFAw3X0qQA-Photoroom_xypr4p.png"
+              src={logoUrl}
               alt="Sereno TI"
-              className="logo-img"
+              className="navbar-logo-image"
             />
           </Link>
 
+          <nav className="navbar-links" aria-label="Navegación principal">
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                isActive ? "navbar-link active" : "navbar-link"
+              }
+            >
+              Inicio
+            </NavLink>
+
+            <NavLink
+              to="/services"
+              className={({ isActive }) =>
+                isActive ? "navbar-link active" : "navbar-link"
+              }
+            >
+              Servicios
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "navbar-link active" : "navbar-link"
+              }
+            >
+              Contacto
+            </NavLink>
+          </nav>
+
+          <Link to="/contact" className="navbar-cta">
+            Hablemos
+          </Link>
+
+          <button
+            type="button"
+            className="navbar-menu-button"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Abrir menú"
+            aria-expanded={menuOpen}
+          >
+            <Menu size={26} strokeWidth={1.7} />
+          </button>
         </div>
       </header>
 
-      <SideMenu isOpen={menuOpen} toggleMenu={toggleMenu} />
+      <SideMenu isOpen={menuOpen} closeMenu={closeMenu} />
     </>
   );
 }
