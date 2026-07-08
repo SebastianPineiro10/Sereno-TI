@@ -1,15 +1,28 @@
 .footer {
   padding: 75px 0 28px;
-  background: #090b0e;
+  background: var(--color-black);
   color: var(--color-white);
 }
 
 .footer-main {
   display: grid;
-  grid-template-columns: 1.5fr 0.55fr 0.75fr;
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(150px, 0.55fr)
+    minmax(180px, 0.75fr);
   gap: 80px;
   padding-bottom: 60px;
 }
+
+.footer-brand,
+.footer-navigation,
+.footer-contact {
+  min-width: 0;
+}
+
+/* ======================================================
+   MARCA
+   ====================================================== */
 
 .footer-logo {
   display: inline-block;
@@ -28,11 +41,15 @@
   line-height: 1.75;
 }
 
+/* ======================================================
+   NAVEGACIÓN Y CONTACTO
+   ====================================================== */
+
 .footer-navigation,
 .footer-contact {
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
+  align-items: flex-start;
   gap: 13px;
 }
 
@@ -48,18 +65,33 @@
 
 .footer-navigation a,
 .footer-contact a {
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
   gap: 7px;
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.84rem;
-  transition: color var(--transition);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  transition:
+    color var(--transition),
+    transform var(--transition);
 }
 
 .footer-navigation a:hover,
 .footer-contact a:hover {
   color: var(--color-white);
+  transform: translateX(3px);
 }
+
+.footer-navigation svg,
+.footer-contact svg {
+  flex-shrink: 0;
+}
+
+/* ======================================================
+   PARTE INFERIOR
+   ====================================================== */
 
 .footer-bottom {
   display: flex;
@@ -73,21 +105,175 @@
 .footer-bottom p {
   color: rgba(255, 255, 255, 0.3);
   font-size: 0.72rem;
+  line-height: 1.6;
 }
 
-@media (max-width: 750px) {
+/* ======================================================
+   ESCRITORIO MEDIANO
+   ====================================================== */
+
+@media (max-width: 1100px) {
+  .footer-main {
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(140px, 0.55fr)
+      minmax(180px, 0.75fr);
+    gap: 46px;
+  }
+}
+
+/* ======================================================
+   TABLET HORIZONTAL
+   ====================================================== */
+
+@media (max-width: 900px) {
   .footer {
-    padding-top: 60px;
+    padding-top: 68px;
+  }
+
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px 54px;
+    padding-bottom: 50px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    max-width: 620px;
+  }
+}
+
+/* ======================================================
+   TABLET Y MÓVIL
+   ====================================================== */
+
+@media (max-width: 700px) {
+  .footer {
+    padding: 58px 0 24px;
   }
 
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 42px;
+    gap: 34px;
+    padding-bottom: 42px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-navigation,
+  .footer-contact {
+    gap: 12px;
   }
 
   .footer-bottom {
     align-items: flex-start;
     flex-direction: column;
     gap: 8px;
+    padding-top: 22px;
+  }
+}
+
+/* ======================================================
+   TELÉFONOS
+   ====================================================== */
+
+@media (max-width: 480px) {
+  .footer {
+    padding-top: 50px;
+  }
+
+  .footer-main {
+    gap: 30px;
+    padding-bottom: 38px;
+  }
+
+  .footer-logo {
+    margin-bottom: 14px;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-brand p {
+    font-size: 0.83rem;
+    line-height: 1.7;
+  }
+
+  .footer-navigation > span,
+  .footer-contact > span {
+    margin-bottom: 4px;
+    font-size: 0.64rem;
+  }
+
+  .footer-navigation a,
+  .footer-contact a {
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.68rem;
+  }
+}
+
+/* ======================================================
+   TELÉFONOS PEQUEÑOS
+   ====================================================== */
+
+@media (max-width: 360px) {
+  .footer {
+    padding-top: 46px;
+  }
+
+  .footer-main {
+    gap: 28px;
+    padding-bottom: 34px;
+  }
+
+  .footer-logo {
+    font-size: 0.95rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.8rem;
+  }
+
+  .footer-navigation a,
+  .footer-contact a {
+    font-size: 0.78rem;
+  }
+
+  .footer-bottom {
+    padding-top: 19px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.66rem;
+  }
+}
+
+/* ======================================================
+   DISPOSITIVOS TÁCTILES
+   ====================================================== */
+
+@media (hover: none) {
+  .footer-navigation a:hover,
+  .footer-contact a:hover {
+    color: rgba(255, 255, 255, 0.7);
+    transform: none;
+  }
+}
+
+/* ======================================================
+   MOVIMIENTO REDUCIDO
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-navigation a,
+  .footer-contact a {
+    transition: none;
   }
 }

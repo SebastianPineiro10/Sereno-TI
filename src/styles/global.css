@@ -1,28 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --color-black: #0b0d10;
-  --color-dark: #12161c;
-  --color-dark-soft: #1a2028;
+  --color-black: #181818;
+  --color-dark: #212121;
+  --color-dark-soft: #292929;
 
   --color-white: #ffffff;
-  --color-background: #f7f8fa;
+  --color-background: #f5f4f2;
   --color-surface: #ffffff;
 
-  --color-text: #11151a;
-  --color-text-soft: #5c6570;
-  --color-text-light: #8d96a0;
+  --color-text: #1f1f1f;
+  --color-text-soft: #686868;
+  --color-text-light: #969696;
 
-  --color-border: #e5e8ec;
-  --color-border-dark: rgba(255, 255, 255, 0.12);
+  --color-border: #e4e2de;
+  --color-border-dark: rgba(255, 255, 255, 0.1);
 
-  --color-primary: #11151a;
+  --color-primary: #212121;
+  --color-primary-hover: #2d2d2d;
+
   --color-whatsapp: #25d366;
   --color-whatsapp-dark: #1ead55;
 
-  --shadow-small: 0 10px 30px rgba(17, 21, 26, 0.06);
-  --shadow-medium: 0 22px 60px rgba(17, 21, 26, 0.1);
-  --shadow-large: 0 35px 90px rgba(17, 21, 26, 0.14);
+  --color-gold: #c6a56b;
+  --color-gold-soft: rgba(198, 165, 107, 0.16);
+  --color-gold-border: rgba(198, 165, 107, 0.24);
+  --color-gold-glow: rgba(198, 165, 107, 0.14);
+
+  --shadow-small: 0 10px 30px rgba(33, 33, 33, 0.06);
+  --shadow-medium: 0 22px 60px rgba(33, 33, 33, 0.1);
+  --shadow-large: 0 35px 90px rgba(33, 33, 33, 0.15);
 
   --container-width: 1180px;
   --navbar-height: 92px;
@@ -35,12 +42,23 @@
   --transition: 250ms ease;
 }
 
+/* ======================================================
+   RESET
+   ====================================================== */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
 }
 
 html {
@@ -51,7 +69,7 @@ html {
 body {
   min-width: 320px;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-main);
@@ -83,12 +101,17 @@ svg {
   max-width: 100%;
 }
 
+img {
+  height: auto;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-ul {
+ul,
+ol {
   list-style: none;
 }
 
@@ -106,6 +129,10 @@ p {
   color: var(--color-text-soft);
 }
 
+/* ======================================================
+   ESTRUCTURA GENERAL
+   ====================================================== */
+
 .app {
   min-height: 100vh;
   display: flex;
@@ -113,22 +140,32 @@ p {
 }
 
 .app-content {
+  min-width: 0;
   flex: 1;
 }
 
 .page-container {
-  width: min(var(--container-width), calc(100% - 48px));
+  width: min(
+    var(--container-width),
+    calc(100% - 48px)
+  );
   margin-inline: auto;
 }
+
+/* ======================================================
+   EYEBROW DE SECCIONES
+   ====================================================== */
 
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  max-width: 100%;
   margin-bottom: 20px;
   color: var(--color-text-soft);
   font-size: 0.76rem;
   font-weight: 700;
+  line-height: 1.4;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -137,8 +174,13 @@ p {
   content: "";
   width: 28px;
   height: 1px;
+  flex-shrink: 0;
   background: currentColor;
 }
+
+/* ======================================================
+   BOTONES GENERALES
+   ====================================================== */
 
 .primary-button,
 .secondary-button {
@@ -151,6 +193,8 @@ p {
   border-radius: var(--radius-small);
   font-size: 0.9rem;
   font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
   transition:
     transform var(--transition),
     background-color var(--transition),
@@ -162,13 +206,13 @@ p {
 .primary-button {
   background: var(--color-primary);
   color: var(--color-white);
-  box-shadow: 0 12px 30px rgba(17, 21, 26, 0.2);
+  box-shadow: 0 12px 30px rgba(33, 33, 33, 0.2);
 }
 
 .primary-button:hover {
   transform: translateY(-2px);
-  background: #252b33;
-  box-shadow: 0 18px 38px rgba(17, 21, 26, 0.25);
+  background: var(--color-primary-hover);
+  box-shadow: 0 18px 38px rgba(33, 33, 33, 0.25);
 }
 
 .secondary-button {
@@ -182,25 +226,171 @@ p {
   border-color: var(--color-text);
 }
 
+/* ======================================================
+   ACCESIBILIDAD
+   ====================================================== */
+
 .primary-button:focus-visible,
 .secondary-button:focus-visible,
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid rgba(17, 21, 26, 0.2);
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(198, 165, 107, 0.32);
   outline-offset: 4px;
 }
 
-@media (max-width: 768px) {
+/* ======================================================
+   MONITORES MEDIANOS
+   ====================================================== */
+
+@media (max-width: 1200px) {
   :root {
-    --navbar-height: 78px;
+    --container-width: 1080px;
+  }
+}
+
+/* ======================================================
+   LAPTOPS Y TABLETS HORIZONTALES
+   ====================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --container-width: 940px;
   }
 
   .page-container {
-    width: min(100% - 32px, var(--container-width));
+    width: min(
+      var(--container-width),
+      calc(100% - 40px)
+    );
+  }
+}
+
+/* ======================================================
+   TABLETS
+   ====================================================== */
+
+@media (max-width: 900px) {
+  :root {
+    --navbar-height: 82px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    width: min(
+      var(--container-width),
+      calc(100% - 32px)
+    );
+  }
+
+  .section-eyebrow {
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+  }
+
+  .section-eyebrow::before {
+    width: 22px;
   }
 
   .primary-button,
   .secondary-button {
     width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  span {
+    overflow-wrap: break-word;
+  }
+}
+
+/* ======================================================
+   TELÉFONOS
+   ====================================================== */
+
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 76px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .page-container {
+    width: min(
+      var(--container-width),
+      calc(100% - 28px)
+    );
+  }
+
+  .section-eyebrow {
+    font-size: 0.66rem;
+    line-height: 1.5;
+    letter-spacing: 0.11em;
+  }
+
+  .primary-button,
+  .secondary-button {
+    min-height: 50px;
+    padding: 13px 18px;
+    font-size: 0.84rem;
+  }
+}
+
+/* ======================================================
+   TELÉFONOS MUY PEQUEÑOS
+   ====================================================== */
+
+@media (max-width: 360px) {
+  .page-container {
+    width: min(
+      var(--container-width),
+      calc(100% - 22px)
+    );
+  }
+
+  .primary-button,
+  .secondary-button {
+    padding-inline: 15px;
+  }
+}
+
+/* ======================================================
+   DISPOSITIVOS TÁCTILES
+   ====================================================== */
+
+@media (hover: none) {
+  .primary-button:hover,
+  .secondary-button:hover {
+    transform: none;
+  }
+}
+
+/* ======================================================
+   MOVIMIENTO REDUCIDO
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

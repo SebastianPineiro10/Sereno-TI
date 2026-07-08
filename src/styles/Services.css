@@ -2,6 +2,10 @@
   background: var(--color-background);
 }
 
+/* ======================================================
+   HERO
+   ====================================================== */
+
 .services-hero {
   padding: calc(var(--navbar-height) + 110px) 0 110px;
   background: var(--color-dark);
@@ -28,6 +32,7 @@
   color: var(--color-white);
   font-size: clamp(3rem, 6vw, 5.7rem);
   font-weight: 650;
+  line-height: 1.05;
   letter-spacing: -0.06em;
 }
 
@@ -39,17 +44,22 @@
   line-height: 1.8;
 }
 
+/* ======================================================
+   LISTA DE SERVICIOS
+   ====================================================== */
+
 .services-list {
   padding: 100px 0;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
 .service-box {
+  min-width: 0;
   min-height: 540px;
   display: flex;
   flex-direction: column;
@@ -61,23 +71,27 @@
   transition:
     transform var(--transition),
     box-shadow var(--transition),
-    border-color var(--transition);
+    border-color var(--transition),
+    background-color var(--transition);
 }
 
 .service-box:hover {
   transform: translateY(-6px);
-  border-color: #cbd1d8;
+  border-color: #d0cdc7;
+  background: #faf9f7;
   box-shadow: var(--shadow-medium);
 }
 
 .service-box-top {
+  min-height: 76px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  min-height: 76px;
+  gap: 24px;
 }
 
 .service-number {
+  flex-shrink: 0;
   color: var(--color-text-light);
   font-size: 0.74rem;
   font-weight: 700;
@@ -85,11 +99,13 @@
 }
 
 .service-icons {
+  min-width: 0;
+  min-height: 48px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 16px;
-  min-height: 48px;
+  gap: 14px 16px;
 }
 
 .service-icons img {
@@ -112,6 +128,7 @@
 }
 
 .service-content {
+  min-width: 0;
   margin-top: auto;
 }
 
@@ -148,16 +165,27 @@
   color: var(--color-text);
 }
 
+/* ======================================================
+   INFORMACIÓN
+   ====================================================== */
+
 .services-information {
   padding: 105px 0;
-  background: var(--color-white);
   border-top: 1px solid var(--color-border);
+  background: var(--color-white);
 }
 
 .services-information-container {
+  min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.7fr);
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(330px, 0.7fr);
   gap: 100px;
+}
+
+.services-information-container > div {
+  min-width: 0;
 }
 
 .services-information h2 {
@@ -183,56 +211,291 @@
   border-bottom: 1px solid var(--color-text);
   font-size: 0.86rem;
   font-weight: 700;
+  transition:
+    gap var(--transition),
+    color var(--transition),
+    border-color var(--transition);
 }
 
-@media (max-width: 900px) {
+.services-information a:hover {
+  gap: 14px;
+  color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* ======================================================
+   ESCRITORIO MEDIANO
+   ====================================================== */
+
+@media (max-width: 1200px) {
+  .services-information-container {
+    gap: 70px;
+  }
+
+  .service-box {
+    padding: 34px;
+  }
+}
+
+/* ======================================================
+   LAPTOP Y TABLET HORIZONTAL
+   ====================================================== */
+
+@media (max-width: 1024px) {
+  .services-information-container {
+    gap: 52px;
+  }
+
+  .service-box {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 960px) {
+  .services-hero {
+    padding:
+      calc(var(--navbar-height) + 90px)
+      0
+      90px;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
   }
 
   .service-box {
-    min-height: 470px;
+    min-height: 420px;
   }
 
   .services-information-container {
     grid-template-columns: 1fr;
     gap: 35px;
   }
+
+  .services-information-container > div:last-child {
+    align-self: auto;
+    max-width: 680px;
+  }
 }
 
-@media (max-width: 600px) {
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 768px) {
   .services-hero {
-    padding: calc(var(--navbar-height) + 80px) 0 80px;
+    padding:
+      calc(var(--navbar-height) + 64px)
+      0
+      72px;
   }
 
   .services-hero h1 {
-    font-size: clamp(2.8rem, 13vw, 4rem);
+    font-size: clamp(2.8rem, 11vw, 4.3rem);
   }
 
-  .services-list {
-    padding: 70px 0;
+  .services-hero p {
+    max-width: 600px;
+    font-size: 1rem;
+  }
+
+  .services-list,
+  .services-information {
+    padding: 78px 0;
   }
 
   .service-box {
-    min-height: 500px;
-    padding: 28px;
+    min-height: 390px;
+    padding: 30px;
+  }
+
+  .services-information h2 {
+    font-size: clamp(2.15rem, 8vw, 3.4rem);
+  }
+}
+
+/* ======================================================
+   TELÉFONOS
+   ====================================================== */
+
+@media (max-width: 600px) {
+  .services-hero {
+    padding:
+      calc(var(--navbar-height) + 38px)
+      0
+      60px;
+  }
+
+  .services-eyebrow {
+    margin-bottom: 20px;
+    font-size: 0.67rem;
+    letter-spacing: 0.13em;
+  }
+
+  .services-hero h1 {
+    margin-bottom: 22px;
+    font-size: clamp(2.45rem, 12vw, 3.55rem);
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+  }
+
+  .services-hero p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .services-list,
+  .services-information {
+    padding: 64px 0;
+  }
+
+  .services-grid {
+    gap: 18px;
+  }
+
+  .service-box {
+    min-height: auto;
+    padding: 24px;
+    border-radius: 17px;
   }
 
   .service-box-top {
+    min-height: auto;
     flex-direction: column;
-    gap: 22px;
+    gap: 18px;
   }
 
   .service-icons {
+    width: 100%;
     justify-content: flex-start;
   }
 
   .service-icons img {
-    max-width: 70px;
+    max-width: 72px;
     height: 32px;
   }
 
-  .services-information {
-    padding: 80px 0;
+  .service-content {
+    margin-top: 38px;
+  }
+
+  .service-content h2 {
+    margin-bottom: 16px;
+    font-size: 1.65rem;
+  }
+
+  .service-content > p {
+    margin-bottom: 24px;
+    font-size: 0.91rem;
+    line-height: 1.7;
+  }
+
+  .service-content ul {
+    gap: 12px;
+    padding-top: 20px;
+  }
+
+  .service-content li {
+    font-size: 0.83rem;
+  }
+
+  .services-information-container {
+    gap: 26px;
+  }
+
+  .services-information h2 {
+    font-size: clamp(2.05rem, 10vw, 3rem);
+  }
+
+  .services-information-container > div:last-child p {
+    margin-bottom: 24px;
+    font-size: 0.92rem;
+    line-height: 1.72;
+  }
+
+  .services-information a {
+    width: 100%;
+    min-height: 50px;
+    justify-content: center;
+    padding: 13px 16px;
+    border: 1px solid var(--color-text);
+    border-radius: 10px;
+  }
+
+  .services-information a:hover {
+    gap: 10px;
+  }
+}
+
+/* ======================================================
+   TELÉFONOS PEQUEÑOS
+   ====================================================== */
+
+@media (max-width: 380px) {
+  .services-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .service-box {
+    padding: 20px;
+  }
+
+  .service-icons {
+    gap: 12px;
+  }
+
+  .service-icons img {
+    max-width: 62px;
+    height: 28px;
+  }
+
+  .service-content {
+    margin-top: 34px;
+  }
+
+  .service-content h2 {
+    font-size: 1.45rem;
+  }
+
+  .service-content li {
+    gap: 9px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ======================================================
+   DISPOSITIVOS TÁCTILES
+   ====================================================== */
+
+@media (hover: none) {
+  .service-box:hover {
+    transform: none;
+    border-color: var(--color-border);
+    background: var(--color-white);
+    box-shadow: var(--shadow-small);
+  }
+
+  .service-box:hover .service-icons img {
+    opacity: 0.58;
+    filter: grayscale(1);
+    transform: none;
+  }
+
+  .services-information a:hover {
+    gap: 10px;
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+}
+
+/* ======================================================
+   ACCESIBILIDAD
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .service-box,
+  .service-icons img,
+  .services-information a {
+    transition: none;
   }
 }

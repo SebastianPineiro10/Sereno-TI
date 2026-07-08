@@ -2,6 +2,10 @@
   background: var(--color-background);
 }
 
+/* ======================================================
+   SECCIÓN PRINCIPAL
+   ====================================================== */
+
 .contact-section {
   position: relative;
   min-height: 780px;
@@ -12,7 +16,7 @@
   background:
     radial-gradient(
       circle at 78% 35%,
-      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.065),
       transparent 28%
     ),
     var(--color-dark);
@@ -22,20 +26,35 @@
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.26;
+  opacity: 0.24;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    );
   background-size: 48px 48px;
 }
 
 .contact-container {
   position: relative;
   z-index: 1;
+  min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(340px, 0.72fr);
   align-items: center;
   gap: 90px;
+}
+
+.contact-content,
+.contact-card {
+  min-width: 0;
 }
 
 .contact-content {
@@ -58,6 +77,7 @@
   content: "";
   width: 28px;
   height: 1px;
+  flex-shrink: 0;
   background: currentColor;
 }
 
@@ -66,6 +86,7 @@
   color: var(--color-white);
   font-size: clamp(3.1rem, 6vw, 5.8rem);
   font-weight: 650;
+  line-height: 1.04;
   letter-spacing: -0.06em;
 }
 
@@ -75,6 +96,10 @@
   font-size: 1.04rem;
   line-height: 1.8;
 }
+
+/* ======================================================
+   BENEFICIOS
+   ====================================================== */
 
 .contact-benefits {
   display: grid;
@@ -88,6 +113,7 @@
   gap: 11px;
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 .contact-benefits svg {
@@ -95,13 +121,18 @@
   color: rgba(255, 255, 255, 0.84);
 }
 
+/* ======================================================
+   TARJETA DE CONTACTO
+   ====================================================== */
+
 .contact-card {
   padding: 38px;
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
-  background: rgba(28, 34, 42, 0.78);
-  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.35);
+  background: rgba(41, 41, 41, 0.84);
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .contact-card-icon {
@@ -129,6 +160,7 @@
   margin-bottom: 17px;
   color: var(--color-white);
   font-size: 1.8rem;
+  line-height: 1.2;
 }
 
 .contact-card > p {
@@ -157,7 +189,12 @@
 }
 
 .contact-whatsapp-button span {
+  min-width: 0;
   flex: 1;
+}
+
+.contact-whatsapp-button svg {
+  flex-shrink: 0;
 }
 
 .contact-whatsapp-button:hover {
@@ -174,12 +211,22 @@
   margin-top: 16px;
   color: rgba(255, 255, 255, 0.38);
   font-size: 0.73rem;
+  line-height: 1.5;
+  text-align: center;
 }
+
+.contact-card-note svg {
+  flex-shrink: 0;
+}
+
+/* ======================================================
+   CONTACTO ALTERNATIVO
+   ====================================================== */
 
 .contact-alternative {
   padding: 42px 0;
-  background: var(--color-white);
   border-bottom: 1px solid var(--color-border);
+  background: var(--color-white);
 }
 
 .contact-alternative-container {
@@ -192,10 +239,15 @@
 .contact-alternative-icon {
   width: 48px;
   height: 48px;
+  flex-shrink: 0;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: var(--color-background);
+}
+
+.contact-alternative-container > div:last-child {
+  min-width: 0;
 }
 
 .contact-alternative span {
@@ -208,31 +260,178 @@
 .contact-alternative a {
   font-size: 0.9rem;
   font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* ======================================================
+   ESCRITORIO MEDIANO
+   ====================================================== */
+
+@media (max-width: 1200px) {
+  .contact-container {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(330px, 0.72fr);
+    gap: 60px;
+  }
+
+  .contact-card {
+    padding: 34px;
+  }
+}
+
+/* ======================================================
+   LAPTOP Y TABLET HORIZONTAL
+   ====================================================== */
+
+@media (max-width: 1100px) {
+  .contact-container {
+    gap: 54px;
+  }
 }
 
 @media (max-width: 950px) {
+  .contact-section {
+    min-height: auto;
+    padding:
+      calc(var(--navbar-height) + 85px)
+      0
+      90px;
+  }
+
   .contact-container {
     grid-template-columns: 1fr;
-    gap: 55px;
+    gap: 48px;
+  }
+
+  .contact-content {
+    max-width: 760px;
   }
 
   .contact-card {
-    max-width: 620px;
+    width: min(100%, 620px);
   }
 }
 
-@media (max-width: 600px) {
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 768px) {
   .contact-section {
-    min-height: auto;
-    padding: calc(var(--navbar-height) + 75px) 0 75px;
+    padding:
+      calc(var(--navbar-height) + 58px)
+      0
+      76px;
   }
 
   .contact-content h1 {
-    font-size: clamp(2.9rem, 13vw, 4.2rem);
+    font-size: clamp(2.8rem, 10vw, 4.4rem);
+  }
+
+  .contact-description {
+    font-size: 1rem;
   }
 
   .contact-card {
-    padding: 28px;
+    padding: 30px;
+  }
+
+  .contact-alternative {
+    padding: 36px 0;
+  }
+}
+
+/* ======================================================
+   TELÉFONOS
+   ====================================================== */
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding:
+      calc(var(--navbar-height) + 36px)
+      0
+      62px;
+  }
+
+  .contact-container {
+    gap: 38px;
+  }
+
+  .contact-eyebrow {
+    margin-bottom: 20px;
+    font-size: 0.67rem;
+    letter-spacing: 0.13em;
+  }
+
+  .contact-eyebrow::before {
+    width: 22px;
+  }
+
+  .contact-content h1 {
+    margin-bottom: 22px;
+    font-size: clamp(2.45rem, 12vw, 3.55rem);
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+  }
+
+  .contact-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .contact-benefits {
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .contact-benefits div {
+    align-items: flex-start;
+    font-size: 0.84rem;
+  }
+
+  .contact-benefits svg {
+    margin-top: 2px;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: none;
+    padding: 24px;
+    border-radius: 17px;
+  }
+
+  .contact-card-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 22px;
+    border-radius: 14px;
+  }
+
+  .contact-card h2 {
+    font-size: 1.55rem;
+  }
+
+  .contact-card > p {
+    font-size: 0.87rem;
+    line-height: 1.7;
+  }
+
+  .contact-whatsapp-button {
+    width: 100%;
+    min-height: 54px;
+    margin-top: 24px;
+    padding: 14px 16px;
+    font-size: 0.82rem;
+  }
+
+  .contact-card-note {
+    align-items: flex-start;
+    font-size: 0.69rem;
+  }
+
+  .contact-alternative {
+    padding: 32px 0;
   }
 
   .contact-alternative-container {
@@ -240,7 +439,72 @@
     justify-content: flex-start;
   }
 
+  .contact-alternative-icon {
+    width: 44px;
+    height: 44px;
+  }
+
   .contact-alternative a {
-    overflow-wrap: anywhere;
+    font-size: 0.84rem;
+  }
+}
+
+/* ======================================================
+   TELÉFONOS PEQUEÑOS
+   ====================================================== */
+
+@media (max-width: 380px) {
+  .contact-content h1 {
+    font-size: 2.35rem;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+
+  .contact-card h2 {
+    font-size: 1.42rem;
+  }
+
+  .contact-whatsapp-button {
+    gap: 8px;
+    padding-inline: 12px;
+    font-size: 0.78rem;
+  }
+
+  .contact-card-note {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .contact-alternative-container {
+    gap: 13px;
+  }
+
+  .contact-alternative-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ======================================================
+   DISPOSITIVOS TÁCTILES
+   ====================================================== */
+
+@media (hover: none) {
+  .contact-whatsapp-button:hover {
+    transform: none;
+    background: var(--color-whatsapp);
+    box-shadow: 0 16px 35px rgba(37, 211, 102, 0.18);
+  }
+}
+
+/* ======================================================
+   ACCESIBILIDAD
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-whatsapp-button {
+    transition: none;
   }
 }
