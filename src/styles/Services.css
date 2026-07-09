@@ -83,7 +83,7 @@
 }
 
 .service-box-top {
-  min-height: 76px;
+  min-height: 96px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -100,29 +100,28 @@
 
 .service-icons {
   min-width: 0;
-  min-height: 48px;
+  min-height: 58px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 14px 16px;
+  gap: 16px 20px;
 }
 
 .service-icons img {
   width: auto;
-  max-width: 85px;
-  height: 38px;
+  max-width: 120px;
+  height: 54px;
   object-fit: contain;
-  opacity: 0.58;
-  filter: grayscale(1);
+  opacity: 1;
+  filter: grayscale(0);
   transition:
-    opacity var(--transition),
-    filter var(--transition),
-    transform var(--transition);
+    transform var(--transition),
+    opacity var(--transition);
 }
 
 .service-box:hover .service-icons img {
-  opacity: 0.95;
+  opacity: 1;
   filter: grayscale(0);
   transform: translateY(-2px);
 }
@@ -235,6 +234,11 @@
   .service-box {
     padding: 34px;
   }
+
+  .service-icons img {
+    max-width: 110px;
+    height: 50px;
+  }
 }
 
 /* ======================================================
@@ -265,6 +269,10 @@
 
   .service-box {
     min-height: 420px;
+  }
+
+  .service-box-top {
+    min-height: 90px;
   }
 
   .services-information-container {
@@ -307,6 +315,11 @@
   .service-box {
     min-height: 390px;
     padding: 30px;
+  }
+
+  .service-icons img {
+    max-width: 105px;
+    height: 46px;
   }
 
   .services-information h2 {
@@ -367,12 +380,14 @@
 
   .service-icons {
     width: 100%;
+    min-height: 48px;
     justify-content: flex-start;
+    gap: 14px 18px;
   }
 
   .service-icons img {
-    max-width: 72px;
-    height: 32px;
+    max-width: 100px;
+    height: 44px;
   }
 
   .service-content {
@@ -445,8 +460,8 @@
   }
 
   .service-icons img {
-    max-width: 62px;
-    height: 28px;
+    max-width: 88px;
+    height: 40px;
   }
 
   .service-content {
@@ -476,8 +491,8 @@
   }
 
   .service-box:hover .service-icons img {
-    opacity: 0.58;
-    filter: grayscale(1);
+    opacity: 1;
+    filter: grayscale(0);
     transform: none;
   }
 
@@ -499,3 +514,4 @@
     transition: none;
   }
 }
+
