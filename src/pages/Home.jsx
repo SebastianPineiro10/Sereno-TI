@@ -9,9 +9,6 @@ import {
 import "../styles/Home.css";
 import ProjectsCarousel from "../components/ProjectsCarousel";
 
-const whatsappUrl =
-  "https://wa.me/526567779435?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Sereno%20TI%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto%20web.";
-
 const featuredServices = [
   {
     id: "corporate-websites",
@@ -52,15 +49,10 @@ export default function Home() {
             </p>
 
             <div className="home-hero-actions">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="home-primary-button"
-              >
+              <Link to="/contact" className="home-primary-button">
                 Cuéntanos tu proyecto
                 <ArrowRight size={18} aria-hidden="true" />
-              </a>
+              </Link>
 
               <Link to="/services" className="home-secondary-button">
                 Conocer servicios
@@ -249,25 +241,6 @@ export default function Home() {
               </div>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section className="home-final-cta">
-        <div className="page-container home-final-cta-container">
-          <div>
-            <span>¿Tu negocio necesita una página o un sistema web?</span>
-
-            <h2>Hablemos sobre la solución que necesitas.</h2>
-          </div>
-
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Iniciar conversación
-            <ArrowRight size={19} aria-hidden="true" />
-          </a>
         </div>
       </section>
     </main>

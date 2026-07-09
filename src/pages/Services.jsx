@@ -1,10 +1,8 @@
+import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 
 import { servicesData } from "../data/servicesData";
 import "../styles/Services.css";
-
-const whatsappUrl =
-  "https://wa.me/526567779435?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20servicios%20web%20de%20Sereno%20TI.";
 
 export default function Services() {
   return (
@@ -89,15 +87,13 @@ export default function Services() {
               funciones principales y desarrollar una solución web adecuada.
             </p>
 
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Solicitar orientación sobre servicios web por WhatsApp"
+            <Link
+              to="/contact"
+              aria-label="Ir a la sección de contacto para solicitar orientación"
             >
               Solicitar orientación
               <ArrowRight size={18} aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
