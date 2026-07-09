@@ -210,19 +210,6 @@ export default function Navbar() {
               </NavLink>
             ))}
           </nav>
-
-          <Link
-            to="/contact"
-            className="navbar-dropdown-cta"
-            onClick={closeMenu}
-          >
-            Cuéntanos tu proyecto
-            <ArrowUpRight
-              size={18}
-              strokeWidth={1.7}
-              aria-hidden="true"
-            />
-          </Link>
         </div>
       </div>
     </header>
