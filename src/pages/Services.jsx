@@ -9,9 +9,13 @@ export default function Services() {
     <main className="services-page">
       <section className="services-hero">
         <div className="page-container services-hero-container">
-          <span className="services-eyebrow">Servicios Sereno TI</span>
+          <span className="services-eyebrow">
+            Servicios Sereno TI
+          </span>
 
-          <h1>Soluciones web creadas alrededor de tu negocio.</h1>
+          <h1>
+            Soluciones web creadas alrededor de tu negocio.
+          </h1>
 
           <p>
             Diseñamos páginas corporativas y sistemas web personalizados para
@@ -25,10 +29,19 @@ export default function Services() {
         <div className="page-container">
           <div className="services-grid">
             {servicesData.map(
-              ({ id, number, title, description, benefits, images }) => (
+              ({
+                id,
+                number,
+                title,
+                description,
+                benefits,
+                images,
+              }) => (
                 <article key={id} className="service-box">
                   <div className="service-box-top">
-                    <span className="service-number">{number}</span>
+                    <span className="service-number">
+                      {number}
+                    </span>
 
                     <div className="service-icons">
                       {images.map((image) => (
@@ -89,7 +102,7 @@ export default function Services() {
 
             <Link
               to="/contact"
-              aria-label="Ir a la sección de contacto para solicitar orientación"
+              aria-label="Ir a contacto para solicitar orientación"
             >
               Solicitar orientación
               <ArrowRight size={18} aria-hidden="true" />

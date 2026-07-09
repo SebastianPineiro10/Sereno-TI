@@ -14,7 +14,7 @@ export default function Footer() {
             </Link>
 
             <p>
-              Desarrollo de páginas web, aplicaciones y sistemas digitales
+              Desarrollo de páginas web corporativas y sistemas web
               personalizados.
             </p>
           </div>
@@ -28,21 +28,12 @@ export default function Footer() {
           </div>
 
           <div className="footer-contact">
-            <span>Contacto</span>
+            <span>¿Tienes un proyecto?</span>
 
-            <a
-              href="https://wa.me/526567779435?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Sereno%20TI."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
-              <ArrowUpRight size={16} />
-            </a>
-
-            <a href="mailto:sebastian.bienesraices10@gmail.com">
-              Correo electrónico
-              <ArrowUpRight size={16} />
-            </a>
+            <Link to="/contact">
+              Ver medios de contacto
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </div>
 

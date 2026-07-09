@@ -89,7 +89,9 @@ export default function Home() {
             </div>
 
             <div className="home-panel-body">
-              <div className="home-panel-label">Proceso de desarrollo</div>
+              <div className="home-panel-label">
+                Proceso de desarrollo
+              </div>
 
               <div className="home-panel-line home-panel-line--large" />
               <div className="home-panel-line home-panel-line--medium" />
@@ -123,9 +125,13 @@ export default function Home() {
       <section className="home-introduction">
         <div className="page-container home-introduction-container">
           <div>
-            <span className="section-eyebrow">Qué hacemos</span>
+            <span className="section-eyebrow">
+              Qué hacemos
+            </span>
 
-            <h2>Soluciones web claras para necesidades reales.</h2>
+            <h2>
+              Soluciones web claras para necesidades reales.
+            </h2>
           </div>
 
           <p>
@@ -140,8 +146,17 @@ export default function Home() {
         <div className="page-container">
           <div className="home-services-grid">
             {featuredServices.map(
-              ({ id, number, icon: Icon, title, description }) => (
-                <article className="home-service-card" key={id}>
+              ({
+                id,
+                number,
+                icon: Icon,
+                title,
+                description,
+              }) => (
+                <article
+                  className="home-service-card"
+                  key={id}
+                >
                   <div className="home-service-card-header">
                     <div className="home-service-icon">
                       <Icon
@@ -163,9 +178,8 @@ export default function Home() {
 
           <div className="home-services-footer">
             <p>
-              Cada proyecto comienza con una conversación para conocer la
-              necesidad, definir el alcance y encontrar la mejor forma de
-              resolverla.
+              Cada proyecto comienza por comprender la necesidad, definir el
+              alcance y encontrar la mejor forma de resolverla.
             </p>
 
             <Link to="/services">
@@ -185,7 +199,9 @@ export default function Home() {
               Nuestra forma de trabajar
             </span>
 
-            <h2>Un proceso profesional y fácil de entender.</h2>
+            <h2>
+              Un proceso profesional y fácil de entender.
+            </h2>
           </div>
 
           <div className="home-process-steps">
